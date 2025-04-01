@@ -1,0 +1,123 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.1'
+	id 'io.spring.dependency-management' version '1.1.5'
+	id 'jacoco'
+	id "org.sonarqube" version "6.0.1.5171"
+}
+
+group = 'com.fiap.tech'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+bootJar {
+	mainClass.set('com.fiap.tech.FiapTechChallengeConversorApplication')
+}
+
+springBoot {
+	mainClass = 'com.fiap.tech.FiapTechChallengeConversorApplication'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Dependências do Spring Boot e Frameworks Principais
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' 
+	implementation 'org.springframework.boot:spring-boot-starter-web' 
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+	// Dependências relacionadas ao AMQP
+	implementation 'org.springframework.boot:spring-boot-starter-amqp'
+
+	// Dependências do Jackson para manipulação de JSON
+	implementation 'com.fasterxml.jackson.core:jackson-core:2.18.2'
+	implementation 'com.fasterxml.jackson.module:jackson-module-afterburner:2.18.2'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
+
+	// Dependências de Monitoramento
+	implementation 'io.micrometer:micrometer-registry-prometheus'
+
+	// Dependências de Testes
+	testImplementation 'org.springframework.boot:spring-boot-starter-test' 
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2' 
+	testImplementation 'org.mockito:mockito-core:5.14.2' 
+	testImplementation 'org.mockito:mockito-inline:5.2.0'
+	testImplementation('org.springframework.amqp:spring-rabbit-test:2.4.8')
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// Dependências do Lombok (para reduzir boilerplate)
+	compileOnly 'org.projectlombok:lombok:1.18.34'
+	annotationProcessor 'org.projectlombok:lombok:1.18.34'
+
+	// Dependências da AWS
+	implementation platform('com.amazonaws:aws-java-sdk-bom:1.12.600')
+	implementation 'com.amazonaws:aws-java-sdk-s3'
+
+    // Dependências do JCodec
+    implementation 'org.jcodec:jcodec:0.2.5'
+    implementation 'org.jcodec:jcodec-javase:0.2.5'
+
+	// Dependências do JAXB	
+	implementation 'javax.xml.bind:jaxb-api:2.3.1'
+}
+
+// Excluir o commons-logging
+configurations.all {
+	exclude group: 'commons-logging', module: 'commons-logging'
+}
+
+tasks.named("test") {
+	useJUnitPlatform()
+}
+
+jacoco {
+	toolVersion = "0.8.7"
+}
+
+jacocoTestReport {
+	reports {
+		xml.required.set(true)
+		xml.outputLocation.set(file("$rootDir/build/reports/jacoco/test/jacocoTestReport.xml"))
+		html.required.set(true)
+		html.outputLocation.set(file("$rootDir/build/reports/jacoco/test/"))
+	}
+}
+
+sonar {
+	properties {
+		property "sonar.projectKey", "fiap-g30_conversor"
+		property "sonar.organization", "fiap-g30"
+		property "sonar.host.url", "https://sonarcloud.io"
+		property "sonar.token", System.getenv("SONAR_TOKEN")
+		property "sonar.coverage.jacoco.xmlReportPaths", "$rootDir/build/reports/jacoco/test/jacocoTestReport.xml"
+	}
+}
+
+test {
+	reports {
+		junitXml.required.set(true)
+		junitXml.outputLocation.set(file("$rootDir/build/reports/junit/test-results"))
+		html.required.set(true)
+		html.outputLocation.set(file("$rootDir/build/reports/junit/test-results-html"))
+	}
+}
+
+task createReportDirs {
+	doLast {
+		mkdir("$rootDir/build/reports/jacoco/test")
+		mkdir("$rootDir/build/reports/junit/test-results")
+		mkdir("$rootDir/build/reports/junit/test-results-html")
+	}
+}
+
+test {
+	dependsOn createReportDirs
+	useJUnitPlatform()
+}
