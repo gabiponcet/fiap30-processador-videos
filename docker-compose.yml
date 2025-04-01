@@ -9,6 +9,8 @@ services:
     depends_on:
       rabbit:
         condition: service_healthy
+    volumes:
+      - ${HOME}/.aws:/root/.aws:ro
 
   rabbit:
     container_name: rabbitmq-conversor-video-app

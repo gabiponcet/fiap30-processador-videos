@@ -19,7 +19,7 @@ public class ConversorEventListener {
     static final String LISTENER_ID = "ConversorEventListener";
 
     private final DefaultConversorVideoUseCase defaultConversorVideoUseCase;
-    
+
     public ConversorEventListener(DefaultConversorVideoUseCase defaultConversorVideoUseCase) {
         this.defaultConversorVideoUseCase = defaultConversorVideoUseCase;
     }
@@ -29,12 +29,20 @@ public class ConversorEventListener {
         queues = "${amqp.queues.conversor-request.queue}"
     )
     public void consumeConversorEvent(String message) {
-        final var aResult = Json.readValue(message, RabbitConversorResquest.class);
-        
-        if (aResult instanceof RabbitConversorResquest) {
-            log.info("[message:conversor.listener.income] [status:completed] [payload:{}]", message);
+        if (message == null || message.trim().isEmpty()) {
+            log.error("[message:conversor.listener.income] [status:error] [reason:empty payload]");
+            return;
+        }
 
-            RabbitConversorResquest dto = (RabbitConversorResquest) aResult;
+        try {
+            RabbitConversorResquest dto = Json.readValue(message, RabbitConversorResquest.class);
+
+            if (dto == null) {
+                log.error("[message:conversor.listener.income] [status:error] [reason:invalid payload]");
+                return; 
+            }
+
+            log.info("[message:conversor.listener.income] [status:completed] [payload:{}]", message);
 
             final var cCmd = new ConversorCommand(
                 dto.bucket(),
@@ -42,9 +50,9 @@ public class ConversorEventListener {
             );
 
             defaultConversorVideoUseCase.execute(cCmd);
-        } else {
-            log.error("[message:conversor.listener.income] [status:error] [payload:{}]", message);
+
+        } catch (Exception e) {
+            log.error("[message:conversor.listener.income] [status:error] [reason:exception] [error:{}]", e.getMessage());
         }
     }
-    
 }
