@@ -31,7 +31,8 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: ${{ runner.os }}-gradle
+          restore-keys: |
+            ${{ runner.os }}-gradle
 
       - name: Build with Gradle
         run: ./gradlew build --no-daemon
@@ -82,7 +83,11 @@ jobs:
         continue-on-error: true
 
       - name: Run SonarQube Analysis
-        run: ./gradlew sonar -Dsonar.projectKey=fiapg30-videos_fiapg30-videos -Dsonar.organization=fiapg30-videos -Dsonar.token=${{ secrets.SONAR_TOKEN }} -Dsonar.host.url=https://sonarcloud.io
+        run: ./gradlew sonar \
+          -Dsonar.projectKey=fiapg30-videos_fiapg30-videos \
+          -Dsonar.organization=fiapg30-videos \
+          -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
+          -Dsonar.host.url=https://sonarcloud.io
         env:
           SONAR_HOST_URL: https://sonarcloud.io
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
