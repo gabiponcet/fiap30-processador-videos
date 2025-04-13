@@ -83,11 +83,12 @@ jobs:
         continue-on-error: true
 
       - name: Run SonarQube Analysis
-        run: ./gradlew sonar \
-          -Dsonar.projectKey=fiapg30-videos_fiapg30-videos \
-          -Dsonar.organization=fiapg30-videos \
-          -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
-          -Dsonar.host.url=https://sonarcloud.io
+        run: |
+          ./gradlew sonar \
+            -Dsonar.projectKey=fiapg30-videos_fiapg30-videos \
+            -Dsonar.organization=fiapg30-videos \
+            -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
+            -Dsonar.host.url=https://sonarcloud.io
         env:
           SONAR_HOST_URL: https://sonarcloud.io
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
