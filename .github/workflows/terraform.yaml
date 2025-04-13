@@ -1,15 +1,10 @@
 name: Provision Infrastructure - PAYMENT
 
-#on:
- # workflow_run:
-  #  workflows: ["CI/CD - Processador/Conversor Application"]
-   # types:
-    #  - completed
 on:
-  push:
-    branches:
-      - pipelines-infrak8s
-
+  workflow_run:
+    workflows: ["CI/CD - Processador/Conversor Application"]
+    types:
+      - completed
 
 jobs:
   terraform:
