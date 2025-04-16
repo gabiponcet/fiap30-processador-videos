@@ -15,7 +15,12 @@ java {
 	}
 }
 
+jar {
+    enabled = false
+}
+
 bootJar {
+	archiveFileName = 'conversor-application.jar'
 	mainClass.set('com.fiap.tech.FiapTechChallengeConversorApplication')
 }
 
@@ -57,8 +62,11 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok:1.18.34'
 
 	// Dependências da AWS
-	implementation platform('com.amazonaws:aws-java-sdk-bom:1.12.600')
-	implementation 'com.amazonaws:aws-java-sdk-s3'
+	implementation platform("software.amazon.awssdk:bom:2.25.16")
+    implementation 'software.amazon.awssdk:s3'
+    implementation 'software.amazon.awssdk:auth'
+    implementation 'software.amazon.awssdk:regions'
+    implementation 'software.amazon.awssdk:apache-client'
 
     // Dependências do JCodec
     implementation 'org.jcodec:jcodec:0.2.5'
