@@ -82,7 +82,7 @@ public class JCodecFrameServiceImpl implements FrameExtractorService {
         return frames;
     }
 
-    private File saveFrames(BufferedImage image, ImageFormatEnum imageFormat) {
+    public File saveFrames(BufferedImage image, ImageFormatEnum imageFormat) {
         var filename = String.format("%s.%s", UUID.randomUUID(), imageFormat.mimeType());
         var target = outputDir.resolve(filename);
 
