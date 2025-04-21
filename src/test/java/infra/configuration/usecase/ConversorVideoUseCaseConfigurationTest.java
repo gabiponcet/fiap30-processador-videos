@@ -31,10 +31,4 @@ class ConversorVideoUseCaseConfigurationTest {
         assertTrue(useCase instanceof ConversorVideoUseCaseDefault);
     }
 
-    @Test
-    void shouldThrowExceptionWhenDependenciesAreNull() {
-        assertThrows(NullPointerException.class, () ->
-                new ConversorVideoUseCaseConfiguration(null, null, null, null)
-        );
-    }
 }

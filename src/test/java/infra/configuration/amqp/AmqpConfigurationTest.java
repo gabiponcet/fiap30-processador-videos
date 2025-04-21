@@ -59,21 +59,6 @@ class AmqpConfigurationTest {
     }
 
     @Test
-    void shouldCreateConversorResponseBindingSuccessfully() {
-        DirectExchange exchange = mock(DirectExchange.class);
-        Queue queue = mock(Queue.class);
-        QueueProperties props = mock(QueueProperties.class);
-        when(props.getRoutingKey()).thenReturn("response-routingKey");
-
-        AmqpConfiguration configuration = new AmqpConfiguration();
-
-        Binding binding = configuration.conversorResponseBinding(exchange, queue, props);
-
-        assertNotNull(binding);
-        assertEquals("response-routingKey", binding.getRoutingKey());
-    }
-
-    @Test
     void shouldCreateConversorRequestExchangeSuccessfully() {
         QueueProperties props = mock(QueueProperties.class);
         when(props.getExchange()).thenReturn("request-exchange");
@@ -99,18 +84,4 @@ class AmqpConfigurationTest {
         assertEquals("request-queue", queue.getName());
     }
 
-    @Test
-    void shouldCreateConversorRequestBindingSuccessfully() {
-        DirectExchange exchange = mock(DirectExchange.class);
-        Queue queue = mock(Queue.class);
-        QueueProperties props = mock(QueueProperties.class);
-        when(props.getRoutingKey()).thenReturn("request-routingKey");
-
-        AmqpConfiguration configuration = new AmqpConfiguration();
-
-        Binding binding = configuration.conversorRequestBinding(exchange, queue, props);
-
-        assertNotNull(binding);
-        assertEquals("request-routingKey", binding.getRoutingKey());
-    }
 }

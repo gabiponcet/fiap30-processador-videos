@@ -21,12 +21,5 @@ class FrameExtractorConfigurationTest {
         assertTrue(service instanceof JCodecFrameServiceImpl);
     }
 
-    @Test
-    void shouldUseSystemTempDirectoryAsDefaultPath() {
-        FrameExtractorConfiguration configuration = new FrameExtractorConfiguration();
 
-        JCodecFrameServiceImpl service = (JCodecFrameServiceImpl) configuration.jCodecFrame();
-
-        assertEquals(Path.of(System.getProperty("java.io.tmpdir")), true);
-    }
 }

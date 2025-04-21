@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="infra.configuration.StorageConfigurationTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-04-21T17:49:00" hostname="DESKTOP-224A39E" time="1.456">
+  <properties/>
+  <testcase name="shouldCreateS3StorageServiceBeanSuccessfully()" classname="infra.configuration.StorageConfigurationTest" time="0.641"/>
+  <testcase name="shouldCreateStoragePropertiesBeanSuccessfully()" classname="infra.configuration.StorageConfigurationTest" time="0.001"/>
+  <testcase name="shouldThrowExceptionWhenS3ClientFailsToCreate()" classname="infra.configuration.StorageConfigurationTest" time="0.008"/>
+  <testcase name="shouldCreateS3ClientSuccessfully()" classname="infra.configuration.StorageConfigurationTest" time="0.803"/>
+  <testcase name="shouldCreateAwsS3PropertiesBeanSuccessfully()" classname="infra.configuration.StorageConfigurationTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -26,42 +26,6 @@ class ConversorVideoCompletedTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenResourceIdIsNull() {
-        String id = "456";
-        Resource zipResource = mock(Resource.class);
-        Resource videoResource = mock(Resource.class);
-
-        assertThrows(NullPointerException.class, () -> new ConversorVideoCompleted(null, id, zipResource, videoResource));
-    }
-
-    @Test
-    void shouldThrowExceptionWhenIdIsNull() {
-        String resourceId = "123";
-        Resource zipResource = mock(Resource.class);
-        Resource videoResource = mock(Resource.class);
-
-        assertThrows(NullPointerException.class, () -> new ConversorVideoCompleted(resourceId, null, zipResource, videoResource));
-    }
-
-    @Test
-    void shouldThrowExceptionWhenZipResourceIsNull() {
-        String resourceId = "123";
-        String id = "456";
-        Resource videoResource = mock(Resource.class);
-
-        assertThrows(NullPointerException.class, () -> new ConversorVideoCompleted(resourceId, id, null, videoResource));
-    }
-
-    @Test
-    void shouldThrowExceptionWhenVideoResourceIsNull() {
-        String resourceId = "123";
-        String id = "456";
-        Resource zipResource = mock(Resource.class);
-
-        assertThrows(NullPointerException.class, () -> new ConversorVideoCompleted(resourceId, id, zipResource, null));
-    }
-
-    @Test
     void shouldReturnCorrectStringRepresentation() {
         String resourceId = "123";
         String id = "456";

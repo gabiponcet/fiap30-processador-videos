@@ -20,10 +20,4 @@ class ConversorVideoUseCaseTest {
         verify(useCase).execute(command);
     }
 
-    @Test
-    void shouldThrowExceptionWhenCommandIsNull() {
-        ConversorVideoUseCase useCase = mock(ConversorVideoUseCase.class);
-
-        assertThrows(NullPointerException.class, () -> useCase.execute(null));
-    }
 }

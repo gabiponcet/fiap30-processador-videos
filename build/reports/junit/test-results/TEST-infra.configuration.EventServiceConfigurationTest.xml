@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="infra.configuration.EventServiceConfigurationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-04-21T17:49:00" hostname="DESKTOP-224A39E" time="0.171">
+  <properties/>
+  <testcase name="shouldThrowExceptionWhenRabbitOperationsIsNull()" classname="infra.configuration.EventServiceConfigurationTest" time="0.041"/>
+  <testcase name="shouldThrowExceptionWhenQueuePropertiesIsNull()" classname="infra.configuration.EventServiceConfigurationTest" time="0.127"/>
+  <testcase name="shouldCreateConversorEventServiceBeanSuccessfully()" classname="infra.configuration.EventServiceConfigurationTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

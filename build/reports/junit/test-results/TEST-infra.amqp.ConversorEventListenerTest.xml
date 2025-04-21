@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="infra.amqp.ConversorEventListenerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-04-21T17:48:59" hostname="DESKTOP-224A39E" time="1.068">
+  <properties/>
+  <testcase name="shouldNotProcessWhenPayloadIsInvalid()" classname="infra.amqp.ConversorEventListenerTest" time="0.91"/>
+  <testcase name="shouldNotProcessWhenMessageIsNull()" classname="infra.amqp.ConversorEventListenerTest" time="0.002"/>
+  <testcase name="shouldProcessValidMessage()" classname="infra.amqp.ConversorEventListenerTest" time="0.147"/>
+  <testcase name="shouldLogErrorWhenUseCaseThrowsException()" classname="infra.amqp.ConversorEventListenerTest" time="0.003"/>
+  <testcase name="shouldNotProcessWhenMessageIsEmpty()" classname="infra.amqp.ConversorEventListenerTest" time="0.002"/>
+  <system-out><![CDATA[14:49:00.324 [Test worker] ERROR com.fiap.tech.infra.amqp.ConversorEventListener -- [message:conversor.listener.income] [status:error] [reason:exception] [error:Error processing JSON]
+14:49:00.328 [Test worker] ERROR com.fiap.tech.infra.amqp.ConversorEventListener -- [message:conversor.listener.income] [status:error] [reason:empty payload]
+14:49:00.476 [Test worker] INFO com.fiap.tech.infra.amqp.ConversorEventListener -- [message:conversor.listener.income] [status:completed] [payload:{"resourceId":"123","id":"456","clientId":"789","filePath":"/videos/video.mp4"}]
+14:49:00.476 [Test worker] ERROR com.fiap.tech.infra.amqp.ConversorEventListener -- [message:conversor.listener.income] [status:error] [reason:exception] [error:ResourceId cannot be null]
+14:49:00.480 [Test worker] INFO com.fiap.tech.infra.amqp.ConversorEventListener -- [message:conversor.listener.income] [status:completed] [payload:{"resourceId":"123","id":"456","clientId":"789","filePath":"/videos/video.mp4"}]
+14:49:00.480 [Test worker] ERROR com.fiap.tech.infra.amqp.ConversorEventListener -- [message:conversor.listener.income] [status:error] [reason:exception] [error:ResourceId cannot be null]
+14:49:00.482 [Test worker] ERROR com.fiap.tech.infra.amqp.ConversorEventListener -- [message:conversor.listener.income] [status:error] [reason:empty payload]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

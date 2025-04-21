@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="infra.services.impl.S3StorageServiceImplTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-04-21T17:49:02" hostname="DESKTOP-224A39E" time="0.202">
+  <properties/>
+  <testcase name="shouldReturnEmptyWhenFileDoesNotExist()" classname="infra.services.impl.S3StorageServiceImplTest" time="0.027"/>
+  <testcase name="shouldStoreResourceSuccessfully()" classname="infra.services.impl.S3StorageServiceImplTest" time="0.017"/>
+  <testcase name="shouldRetrieveResourceSuccessfully()" classname="infra.services.impl.S3StorageServiceImplTest" time="0.149"/>
+  <testcase name="shouldThrowExceptionWhenS3FailsToStoreResource()" classname="infra.services.impl.S3StorageServiceImplTest" time="0.005"/>
+  <testcase name="shouldThrowExceptionWhenS3FailsToRetrieveResource()" classname="infra.services.impl.S3StorageServiceImplTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

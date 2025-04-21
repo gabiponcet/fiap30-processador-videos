@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="infra.configuration.properties.storage.StoragePropertiesTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-04-21T17:49:02" hostname="DESKTOP-224A39E" time="0.006">
+  <properties/>
+  <testcase name="shouldSetAndGetFileNamePatternSuccessfully()" classname="infra.configuration.properties.storage.StoragePropertiesTest" time="0.0"/>
+  <testcase name="shouldReturnCorrectStringRepresentation()" classname="infra.configuration.properties.storage.StoragePropertiesTest" time="0.003"/>
+  <testcase name="shouldSetAndGetLocationPatternSuccessfully()" classname="infra.configuration.properties.storage.StoragePropertiesTest" time="0.001"/>
+  <testcase name="shouldLogPropertiesAfterInitialization()" classname="infra.configuration.properties.storage.StoragePropertiesTest" time="0.002"/>
+  <system-out><![CDATA[14:49:02.223 [Test worker] INFO com.fiap.tech.infra.configuration.properties.storage.StorageProperties -- StorageProperties{locationPattern='test-location', fileNamePattern='test-file-name'}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

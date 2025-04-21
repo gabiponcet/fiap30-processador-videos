@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="infra.configuration.properties.storage.AwsS3PropertiesTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-04-21T17:49:02" hostname="DESKTOP-224A39E" time="0.012">
+  <properties/>
+  <testcase name="shouldSetAndGetBucketSuccessfully()" classname="infra.configuration.properties.storage.AwsS3PropertiesTest" time="0.0"/>
+  <testcase name="shouldSetAndGetAccessKeySuccessfully()" classname="infra.configuration.properties.storage.AwsS3PropertiesTest" time="0.0"/>
+  <testcase name="shouldSetAndGetEndpointSuccessfully()" classname="infra.configuration.properties.storage.AwsS3PropertiesTest" time="0.0"/>
+  <testcase name="shouldReturnCorrectStringRepresentation()" classname="infra.configuration.properties.storage.AwsS3PropertiesTest" time="0.005"/>
+  <testcase name="shouldSetAndGetSecretKeySuccessfully()" classname="infra.configuration.properties.storage.AwsS3PropertiesTest" time="0.0"/>
+  <testcase name="shouldSetAndGetRegionSuccessfully()" classname="infra.configuration.properties.storage.AwsS3PropertiesTest" time="0.0"/>
+  <testcase name="shouldLogPropertiesAfterInitialization()" classname="infra.configuration.properties.storage.AwsS3PropertiesTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

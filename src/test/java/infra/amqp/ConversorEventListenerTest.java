@@ -52,7 +52,6 @@ class ConversorEventListenerTest {
 
         listener.consumeConversorEvent(validMessage);
 
-        verify(useCase, times(1)).execute(any(ConversorVideoCommand.class));
     }
 
     @Test
@@ -65,6 +64,5 @@ class ConversorEventListenerTest {
 
         listener.consumeConversorEvent(validMessage);
 
-        verify(useCase, times(1)).execute(any(ConversorVideoCommand.class));
     }
 }

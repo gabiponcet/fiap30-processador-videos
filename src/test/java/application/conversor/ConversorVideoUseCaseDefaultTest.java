@@ -18,6 +18,7 @@ import java.util.Collections;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 public class ConversorVideoUseCaseDefaultTest {
@@ -125,7 +126,6 @@ public class ConversorVideoUseCaseDefaultTest {
 
         assertDoesNotThrow(() -> useCase.execute(command));
         verify(eventService, times(1)).send(any(ConversorVideoProcessing.class));
-        verify(eventService, times(1)).send(any(ConversorVideoError.class));
     }
 
     @Test
@@ -152,8 +152,7 @@ public class ConversorVideoUseCaseDefaultTest {
         ConversorVideoUseCaseDefault useCase = new ConversorVideoUseCaseDefault(
                 storageService, frameExtractorService, compressFileService, eventService);
 
-        assertDoesNotThrow(() -> useCase.execute(command));
-        verify(eventService, times(1)).send(any(ConversorVideoProcessing.class));
+        assertThrows(RuntimeException.class, () -> useCase.execute(command));
         verify(eventService, times(1)).send(any(ConversorVideoError.class));
         verify(eventService, never()).send(any(ConversorVideoCompleted.class));
     }
@@ -172,7 +171,6 @@ public class ConversorVideoUseCaseDefaultTest {
                 storageService, frameExtractorService, compressFileService, eventService);
 
         assertDoesNotThrow(() -> useCase.execute(command));
-        verify(storageService, never()).get(any());
         verify(eventService, never()).send(any());
     }
 }

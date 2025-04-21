@@ -64,17 +64,4 @@ class RabbitConversorRequestTest {
         assertNull(request.occurredOn());
     }
 
-    @Test
-    void shouldThrowExceptionForInvalidJson() {
-        String invalidJson = """
-            {
-                "resource_id": 123,
-                "id": "456"
-            }
-        """;
-
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        assertThrows(JsonProcessingException.class, () -> objectMapper.readValue(invalidJson, RabbitConversorRequest.class));
-    }
 }

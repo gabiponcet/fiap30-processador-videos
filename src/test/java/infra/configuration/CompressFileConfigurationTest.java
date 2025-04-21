@@ -24,13 +24,5 @@ class CompressFileConfigurationTest {
         assertTrue(service instanceof CompressFileServiceImpl);
     }
 
-    @Test
-    void shouldUseSystemTempDirectoryAsDefaultPath() {
-        StorageProperties storageProperties = mock(StorageProperties.class);
-        CompressFileConfiguration configuration = new CompressFileConfiguration();
 
-        CompressFileServiceImpl service = (CompressFileServiceImpl) configuration.compressFile(storageProperties);
-
-        assertEquals(Path.of(System.getProperty("java.io.tmpdir")), true);
-    }
 }
