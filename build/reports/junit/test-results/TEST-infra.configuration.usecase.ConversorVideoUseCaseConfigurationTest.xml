@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="infra.configuration.usecase.ConversorVideoUseCaseConfigurationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-04-21T17:49:02" hostname="DESKTOP-224A39E" time="0.003">
-  <properties/>
-  <testcase name="shouldCreateConversorVideoUseCaseBeanSuccessfully()" classname="infra.configuration.usecase.ConversorVideoUseCaseConfigurationTest" time="0.003"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
