@@ -1,0 +1,32 @@
+version: '3.10'
+services:
+  app:
+    container_name: conversor-video-app
+    image: conversor-video-app:latest
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      rabbit:
+        condition: service_healthy
+    volumes:
+      - ${HOME}/.aws:/root/.aws:ro
+
+  rabbit:
+    container_name: rabbitmq-conversor-video-app
+    image: rabbitmq:3-management
+    environment:
+      - RABBITMQ_DEFAULT_USER=adm
+      - RABBITMQ_DEFAULT_PASS=123456
+      - RABBITMQ_DEFAULT_VHOST=/
+    ports:
+      - 15672:15672
+      - 5672:5672
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  mongo-data:
