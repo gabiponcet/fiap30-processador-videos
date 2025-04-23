@@ -63,7 +63,7 @@ public class S3StorageServiceImpl implements StorageService {
         s3.putObject(
             PutObjectRequest.builder()
                             .bucket(bucket)
-                            .key(resource.name())
+                            .key(resource.filePath())
                             .contentType(resource.contentType())
                             .build(), RequestBody.fromBytes(resource.content()));
     }
